@@ -41,6 +41,9 @@ public extension YouTubePlayer {
         /// The action to perform when a url gets opened.
         public let openURLAction: OpenURLAction
         
+        /// The action that adjusts the web view configuration before the web view is created.
+        public let configureWebViewAction: ConfigureWebViewAction
+        
         // MARK: Initializer
         
         /// Creates a new instance of ``YouTubePlayer/Configuration``
@@ -54,6 +57,7 @@ public extension YouTubePlayer {
         ///   - customUserAgent: A custom user agent of the underlying web view. Default value `nil`
         ///   - htmlBuilder: The HTML builder. Default value `.init()`
         ///   - openURLAction: The action to perform when a url gets opened.. Default value `.default`
+        ///   - configureWebViewAction: The action that adjusts the web view configuration before the web view is created. Default value `.default`
         public init(
             fullscreenMode: FullscreenMode = .preferred,
             allowsInlineMediaPlayback: Bool = true,
@@ -63,7 +67,8 @@ public extension YouTubePlayer {
             automaticallyAdjustsContentInsets: Bool = true,
             customUserAgent: String? = nil,
             htmlBuilder: HTMLBuilder = .init(),
-            openURLAction: OpenURLAction = .default
+            openURLAction: OpenURLAction = .default,
+            configureWebViewAction: ConfigureWebViewAction = .default
         ) {
             self.fullscreenMode = fullscreenMode
             self.allowsInlineMediaPlayback = allowsInlineMediaPlayback
@@ -74,6 +79,7 @@ public extension YouTubePlayer {
             self.customUserAgent = customUserAgent
             self.htmlBuilder = htmlBuilder
             self.openURLAction = openURLAction
+            self.configureWebViewAction = configureWebViewAction
         }
         
     }

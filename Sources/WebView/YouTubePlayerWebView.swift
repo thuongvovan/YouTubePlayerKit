@@ -56,6 +56,8 @@ final class YouTubePlayerWebView: WKWebView {
                 } else {
                     configuration.preferences.setValue(isElementFullscreenEnabled, forKey: "fullScreenEnabled")
                 }
+                // Let the configure web view action adjust the configuration
+                player.configuration.configureWebViewAction(configuration)
                 return configuration
             }()
         )
